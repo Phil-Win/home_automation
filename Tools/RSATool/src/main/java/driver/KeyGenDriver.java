@@ -11,11 +11,11 @@ import java.util.Random;
 public class KeyGenDriver {
 
 	public static void main(String[] args) throws IOException {
-		Random rng = new Random();
-		int randomBit;
-		Random randomNumber = new SecureRandom();
-		
-		randomBit = rng.nextInt(1025)+1024;
+        Random rng = new Random();
+        int randomBit;
+        Random randomNumber = new SecureRandom();
+        
+         randomBit = rng.nextInt(1025)+1024;
         BigInteger p1 = new BigInteger(randomBit,100,randomNumber);
         randomBit = rng.nextInt(1025)+1024;
         BigInteger p2 = new BigInteger(randomBit,100,randomNumber);
@@ -31,16 +31,16 @@ public class KeyGenDriver {
         String pubFile1 = "RSAPublicKey.txt";
         System.out.println("Writing to file: " + pubFile1);
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(pubFile1))) {
-        		writer.write("PublicKeyN="+publicKeyN.toString());
-        		writer.write("\nPublicKeyE="+publicKeyE.toString());
+            writer.write("PublicKeyN="+publicKeyN.toString());
+            writer.write("\nPublicKeyE="+publicKeyE.toString());
         }
         
         String ppkFile1 = "RSAPubPriKey.txt";
         System.out.println("Writing to file: " + ppkFile1);
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(ppkFile1))) {
-        		writer.write("PublicKeyN="+publicKeyN.toString());
-        		writer.write("\nPublicKeyE="+publicKeyE.toString());
-        		writer.write("\nPrivateKeyD="+privateKeyD.toString());
+            writer.write("PublicKeyN="+publicKeyN.toString());
+            writer.write("\nPublicKeyE="+publicKeyE.toString());
+            writer.write("\nPrivateKeyD="+privateKeyD.toString());
         }
 
 	}
