@@ -1,20 +1,15 @@
 package main.java.driver;
 
 import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.util.Random;
 
 import main.java.util.ASCIIMinus31Encoder;
 
 public class testingDriver {
 
 	public static void main(String[] args) {
-		char letter;
-		// TODO Auto-generated method stub
-        for(int i =33; i<126; i++)
-        {
-        	letter = (char) i;
-            System.out.println( i + ". " + letter);
-            System.out.println((byte) letter); 
-        }
+
         String message = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
         ASCIIMinus31Encoder asdf = new ASCIIMinus31Encoder(message);
         System.out.println(asdf.getMessage());
@@ -25,7 +20,14 @@ public class testingDriver {
         System.out.println(asdf2.getMessage());
         System.out.println(asdf2.messageAsBigIntASCIIMinus31());
         
-        
+        System.out.println("Ok, now other stuff!");
+		Random rng = new Random();
+		int randomBit = rng.nextInt(1025)+1024;
+		Random randomNumber = new SecureRandom();
+        BigInteger p = new BigInteger(randomBit,100,randomNumber);
+
+        // will get a number ~ 2^300, with P(prime)= 1-.5^20
+        System.out.println(p.toString());
 	}
 
 }
