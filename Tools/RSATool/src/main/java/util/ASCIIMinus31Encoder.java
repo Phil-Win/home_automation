@@ -43,7 +43,7 @@ public class ASCIIMinus31Encoder {
 		return message;
 	}
 
-	public BigInteger messageAsBigIntASCIIMinus31() {
+	public BigInteger getMessageAsBigIntASCIIMinus31() {
 		return messageAsBigIntASCIIMinus31;
 	}
 	
