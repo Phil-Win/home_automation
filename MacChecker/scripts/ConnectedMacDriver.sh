@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #getting properties to use
 source /e/project/home_automation/dynamic_properties/MacChecker.properties;
 currentTime=$(date +%T)
