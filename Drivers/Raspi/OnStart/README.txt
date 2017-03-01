@@ -10,3 +10,6 @@ UUID=08F1-D853 /e/project vfat uid=homeprx,gid=admin 0 0
 cron jobs:crontab -e for root
 */15 * * * * su homeprx -c '/e/project/home_automation/projects/MacChecker/ConnectedMacDriver.sh &'
 @reboot su homeprx -c '/e/project/home_automation/projects/MacChecker/ConnectedMacDriver.sh &'
+
+0 20 * * * su homeprx -c '/e/project/Hadoop/Stocks/LandSymbols/Scripts/Stocks_LandSymbols.sh &'
+@reboot su homeprx -c '/e/project/Hadoop/Stocks/LandSymbols/Scripts/Stocks_LandSymbols.sh &'
