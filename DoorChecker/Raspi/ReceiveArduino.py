@@ -6,6 +6,7 @@ import time
 import spidev
 import os
 
+
 GPIO.setmode (GPIO.BCM)
 
 pipes = [[0xE8, 0xE8, 0xF0, 0xF0, 0xE1], [0xF0, 0xF0, 0xF0, 0xF0, 0xE1]]
@@ -46,7 +47,10 @@ while True:
 
 	if messageType not in acceptableReceiveMessages:
 		continue
-	
+
 	f =open('/e/project/landingZone/{}/{}.csv'.format(messageType,currentDate), 'a')
 	f.write('%s\n' % message)
 	f.close()
+	if messageType == acceptableReceiveMessages[1]:
+		if "Open" in message:
+			os.system('sudo /e/project/home_automation/projects/DoorChecker/PlayRandomMusic.sh &')
